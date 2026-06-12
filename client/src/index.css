@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Theme Variables for Hotel Dashboard */
+:root[data-theme='light'] {
+	--bg: #f6f7fb;
+	--sidebar-bg: #1e293b;
+	--sidebar-text: #e0e7ef;
+	--sidebar-active: #f1f5f9;
+	--sidebar-active-text: #6366f1;
+	--topbar-bg: #fff;
+	--mui-primary: #6366f1;
+	--mui-secondary: #f472b6;
+	--mui-accent: #06b6d4;
+	--mui-success: #22c55e;
+	--mui-warning: #fbbf24;
+	--mui-info: #0ea5e9;
+	--mui-danger: #ef4444;
+}
+
+:root[data-theme='dark'] {
+	--bg: #18181b;
+	--sidebar-bg: #23232b;
+	--sidebar-text: #e5e7eb;
+	--sidebar-active: #334155;
+	--sidebar-active-text: #38bdf8;
+	--topbar-bg: #23232b;
+	--mui-primary: #6366f1;
+	--mui-secondary: #f472b6;
+	--mui-accent: #06b6d4;
+	--mui-success: #22c55e;
+	--mui-warning: #fbbf24;
+	--mui-info: #0ea5e9;
+	--mui-danger: #ef4444;
+}
+
+body {
+	background: var(--bg);
+	font-family: 'Plus Jakarta Sans', 'Sora', 'Segoe UI', sans-serif;
+	color: #222;
+	margin: 0;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+html,
+#root {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}

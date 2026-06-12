@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formCard,
+.timelineCard,
+.mapCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.stopItem {
+  border-left: 3px solid #0ea5e9;
+  padding: 8px 10px;
+  margin-top: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+}

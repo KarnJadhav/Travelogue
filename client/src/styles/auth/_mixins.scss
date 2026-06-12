@@ -1,0 +1,56 @@
+@use "./variables" as v;
+
+@mixin glass-panel($alpha: 0.78) {
+  border: 1px solid v.$line;
+  background: rgba(255, 255, 255, $alpha);
+  box-shadow: v.$shadow-lg;
+  backdrop-filter: blur(14px);
+}
+
+@mixin btn-orange {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px !important;
+  padding: 12px 18px !important;
+  font-size: 0.98rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  background: linear-gradient(120deg, v.$brand 0%, v.$brand-deep 100%) !important;
+  box-shadow: 0 16px 32px rgba(199, 103, 72, 0.35) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-115%);
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 100%
+    );
+    transition: transform 0.55s ease;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 20px 36px rgba(199, 103, 72, 0.42) !important;
+    filter: saturate(1.04);
+
+    &::before {
+      transform: translateX(115%);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    transform: none;
+    box-shadow: 0 10px 18px rgba(199, 103, 72, 0.26) !important;
+  }
+}
+
+@mixin field-focus {
+  border-color: rgba(219, 122, 91, 0.54) !important;
+  box-shadow: 0 0 0 3px rgba(219, 122, 91, 0.16);
+}

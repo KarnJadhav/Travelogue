@@ -1,0 +1,516 @@
+/* Advanced Map Component Styles */
+
+.mapContainer {
+  position: relative;
+  width: 100%;
+  background: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+/* ============================================================================
+   SEARCH CONTAINER
+   ============================================================================ */
+
+.searchContainer {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 500px;
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  padding: 12px 16px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+}
+
+.searchInput::placeholder {
+  color: #999;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #1f77b4;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Search Results Dropdown */
+
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: -4px;
+}
+
+.searchResult {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.searchResult:hover {
+  background-color: #f9f9f9;
+}
+
+.searchResult:last-child {
+  border-bottom: none;
+}
+
+.resultIcon {
+  font-size: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.resultText {
+  flex: 1;
+  min-width: 0;
+}
+
+.resultName {
+  font-weight: 600;
+  color: #1f77b4;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultAddress {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================================
+   MARKER POPUP
+   ============================================================================ */
+
+.markerPopup {
+  min-width: 200px;
+  padding: 0;
+}
+
+.markerPopup h3 {
+  margin: 0 0 8px 0;
+  color: #1f77b4;
+  font-size: 16px;
+}
+
+.markerPopup p {
+  margin: 6px 0;
+  font-size: 12px;
+  color: #333;
+}
+
+.routeInfo {
+  color: #00B894;
+  font-weight: 600;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+/* ============================================================================
+   ROUTE INFO PANEL
+   ============================================================================ */
+
+.routeInfoPanel {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  max-width: 300px;
+  z-index: 999;
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.routeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #1f77b4;
+  padding-bottom: 8px;
+}
+
+.routeHeader h3 {
+  margin: 0;
+  color: #1f77b4;
+  font-size: 16px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #1f77b4;
+}
+
+.routeDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.routeDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.routeDetail span {
+  color: #666;
+  font-weight: 500;
+}
+
+.routeDetail strong {
+  color: #1f77b4;
+  font-size: 16px;
+}
+
+/* ============================================================================
+   CONTROLS PANEL
+   ============================================================================ */
+
+.controlsPanel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #1f77b4 0%, #1565aa 100%);
+  color: white;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 119, 180, 0.3);
+}
+
+.btnSecondary {
+  background: white;
+  color: #1f77b4;
+  border: 2px solid #1f77b4;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background: #f0f7ff;
+  transform: translateY(-2px);
+}
+
+.btnDanger {
+  background: #FF6B6B;
+  color: white;
+}
+
+.btnDanger:hover:not(:disabled) {
+  background: #FF5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+/* ============================================================================
+   LEGEND
+   ============================================================================ */
+
+.legend {
+  position: absolute;
+  top: 100px;
+  right: 16px;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 900;
+  font-size: 12px;
+  max-width: 180px;
+}
+
+.legend h4 {
+  margin: 0 0 12px 0;
+  color: #1f77b4;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 2px solid #1f77b4;
+  padding-bottom: 8px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+.legendItem:last-child {
+  margin-bottom: 0;
+}
+
+.legendIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .searchContainer {
+    width: calc(100% - 20px);
+    max-width: none;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+  }
+
+  .controlsPanel {
+    left: 10px;
+    bottom: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    flex: 1;
+    min-width: 80px;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .routeInfoPanel {
+    right: 10px;
+    bottom: 10px;
+    max-width: 280px;
+  }
+
+  .legend {
+    right: 10px;
+    top: 80px;
+    max-width: 160px;
+  }
+
+  .legend h4 {
+    font-size: 13px;
+  }
+
+  .legendItem {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .resultIcon {
+    font-size: 18px;
+  }
+
+  .btn {
+    min-width: 70px;
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .routeInfoPanel {
+    max-width: 250px;
+    padding: 12px;
+  }
+
+  .routeHeader h3 {
+    font-size: 14px;
+  }
+
+  .routeDetail {
+    font-size: 12px;
+  }
+
+  .legend {
+    max-width: 140px;
+  }
+
+  .legend h4 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .legendItem {
+    font-size: 10px;
+    gap: 6px;
+  }
+
+  .legendIcon {
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ============================================================================
+   LEAFLET OVERRIDES
+   ============================================================================ */
+
+:global(.leaflet-container) {
+  font-family: inherit;
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+:global(.leaflet-popup-tip) {
+  background-color: white;
+}
+
+:global(.leaflet-marker-icon) {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+:global(.leaflet-marker-icon:hover) {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+:global(.marker-cluster-small) {
+  background-color: rgba(31, 119, 180, 0.8);
+}
+
+:global(.marker-cluster-medium) {
+  background-color: rgba(31, 119, 180, 0.9);
+}
+
+:global(.marker-cluster) {
+  background-clip: padding-box;
+}
+
+:global(.marker-cluster div) {
+  background-color: #1f77b4;
+  color: white;
+  font-weight: 600;
+}
+
+:global(.leaflet-tile-pane) {
+  opacity: 1;
+}
+
+/* ============================================================================
+   CUSTOM MARKER STYLES
+   ============================================================================ */
+
+:global(.custom-marker) {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+:global(.custom-marker:hover) {
+  transform: scale(1.15);
+}

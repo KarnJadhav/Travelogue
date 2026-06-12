@@ -1,0 +1,484 @@
+{
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "hindi": "Hindi",
+    "marathi": "Marathi"
+  },
+  "dashboard": {
+    "menu": {
+      "overview": "Overview",
+      "revenue": "Revenue Intelligence",
+      "rooms": "Room Management",
+      "bookings": "Bookings",
+      "customers": "Customer Intelligence",
+      "reviews": "Review Analytics",
+      "chat": "Chat",
+      "alerts": "Alerts",
+      "reports": "Reports",
+      "profile": "Profile"
+    },
+    "section": {
+      "overview": {
+        "title": "Overview",
+        "subtitle": "A clear snapshot of today's hotel operations."
+      },
+      "revenue": {
+        "title": "Revenue Intelligence",
+        "subtitle": "Track earnings, performance trends, and occupancy impact."
+      },
+      "rooms": {
+        "title": "Room Management",
+        "subtitle": "Inventory, pricing, and availability in one place."
+      },
+      "bookings": {
+        "title": "Bookings",
+        "subtitle": "See all bookings created by tourists for your property."
+      },
+      "customers": {
+        "title": "Customer Intelligence",
+        "subtitle": "Guest conversations and insights at your fingertips."
+      },
+      "reviews": {
+        "title": "Review Analytics",
+        "subtitle": "Monitor sentiment and celebrate wins."
+      },
+      "chat": {
+        "title": "Chat",
+        "subtitle": "Private conversations with your current guests."
+      },
+      "alerts": {
+        "title": "Alerts",
+        "subtitle": "Important updates, prioritized for you."
+      },
+      "reports": {
+        "title": "Reports",
+        "subtitle": "Reservation activity and operational summaries."
+      },
+      "profile": {
+        "title": "Profile",
+        "subtitle": "Update your hotel profile and account security."
+      }
+    }
+  },
+  "topNavbar": {
+    "commandCenter": "Hotel Command Center",
+    "welcomeBack": "Welcome back, {{name}}",
+    "subtitle": "Track bookings, reviews, and operations in one place.",
+    "roleHotel": "Hotel",
+    "defaultHotelOwner": "Hotel Owner",
+    "noEmailProvided": "No email provided",
+    "noPhoneProvided": "No phone provided",
+    "notSet": "Not set",
+    "field": {
+      "email": "Email",
+      "phone": "Phone",
+      "country": "Country",
+      "interests": "Interests"
+    },
+    "profile": "Profile",
+    "settings": "Settings",
+    "signOut": "Sign out"
+  },
+  "sidebar": {
+    "console": "Hotel Console",
+    "roleHotel": "Hotel",
+    "defaultHotelOwner": "Hotel Owner",
+    "noEmailProvided": "No email provided",
+    "noPhoneProvided": "No phone provided",
+    "notSet": "Not set",
+    "field": {
+      "email": "Email",
+      "phone": "Phone",
+      "hotel": "Hotel",
+      "address": "Address",
+      "country": "Country",
+      "interests": "Interests"
+    },
+    "profile": "Profile",
+    "signOut": "Sign out"
+  },
+  "roomManagement": {
+    "header": {
+      "title": "Room Management",
+      "subtitle": "Track room performance, occupancy, and booking intensity."
+    },
+    "performance": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "status": {
+      "all": "All",
+      "available": "Available",
+      "full": "Full",
+      "unavailable": "Unavailable"
+    },
+    "alerts": {
+      "belowAverage": "Room {{roomNumber}} performing {{percent}}% below average"
+    },
+    "inventory": {
+      "overline": "Room Inventory",
+      "title": "Add New Room",
+      "subtitle": "Add room details and availability in one place."
+    },
+    "sections": {
+      "roomDetails": "Room Details",
+      "inventoryStatus": "Inventory & Status"
+    },
+    "fields": {
+      "roomType": "Room Type",
+      "roomTypePlaceholder": "Deluxe, Suite...",
+      "pricePerNight": "Price per Night",
+      "totalRooms": "Total Rooms",
+      "availableNow": "Available Now",
+      "leaveEmpty": "Leave empty to use Total",
+      "status": "Status"
+    },
+    "filters": {
+      "status": "Status",
+      "roomType": "Room Type"
+    },
+    "buttons": {
+      "addRoom": "Add Room",
+      "save": "Save",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "delete": "Delete"
+    },
+    "table": {
+      "title": "Room Performance Table",
+      "columns": {
+        "roomType": "Room Type",
+        "price": "Price",
+        "status": "Status",
+        "vacantTotal": "Vacant / Total",
+        "booked": "Booked",
+        "occupancy": "Occupancy %",
+        "actions": "Actions"
+      },
+      "loading": "Loading rooms...",
+      "noRooms": "No rooms found."
+    },
+    "dialog": {
+      "deleteTitle": "Delete room?",
+      "deleteWithType": "Are you sure you want to delete {{type}}?",
+      "deleteDefault": "Are you sure you want to delete this room?"
+    },
+    "currency": {
+      "prefix": "INR"
+    }
+  },
+  "hotelBookings": {
+    "header": {
+      "title": "Hotel Bookings",
+      "subtitle": "Bookings created by tourists for your hotel"
+    },
+    "stats": {
+      "total": "Total Bookings",
+      "upcoming": "Upcoming Stays",
+      "completed": "Completed Stays"
+    },
+    "filters": {
+      "searchLabel": "Search bookings",
+      "searchPlaceholder": "Tourist, hotel, or room type",
+      "statusLabel": "Filter by status"
+    },
+    "status": {
+      "all": "All",
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "checkedIn": "Checked in",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "table": {
+      "tourist": "Tourist",
+      "contact": "Contact",
+      "stay": "Stay",
+      "guests": "Guests",
+      "roomDetails": "Room Details",
+      "status": "Status",
+      "created": "Created",
+      "actions": "Actions",
+      "to": "to",
+      "loading": "Loading bookings...",
+      "noData": "No bookings found."
+    },
+    "fallback": {
+      "tourist": "Tourist",
+      "na": "N/A",
+      "standard": "Standard"
+    },
+    "messages": {
+      "statusUpdated": "Booking status updated.",
+      "statusUpdateFailed": "Failed to update booking."
+    }
+  },
+  "hotelNotifications": {
+    "header": {
+      "title": "Alerts & Risk Management",
+      "subtitle": "Smart alerts highlighting operational risks and revenue signals."
+    },
+    "alert": {
+      "lowOccupancyTitle": "Low Occupancy Warning",
+      "lowOccupancyMessage": "Occupancy is at {{occupancy}}%. Immediate action recommended.",
+      "occupancyStableTitle": "Occupancy Stable",
+      "occupancyStableMessage": "Current occupancy is {{occupancy}}%.",
+      "revenueDropTitle": "Revenue Drop Alert",
+      "revenueDropMessage": "Revenue has decreased by {{drop}}% this period."
+    },
+    "risk": {
+      "title": "High Cancellation Risk",
+      "subtitle": "Bookings with more than 3 cancellations are flagged as High Risk.",
+      "bookingId": "Booking ID {{id}}",
+      "highRisk": "High Risk"
+    }
+  },
+  "hotelAnalytics": {
+    "header": {
+      "title": "Revenue Intelligence",
+      "subtitle": "Earnings, occupancy rates, and pricing signals across the last 30 days."
+    },
+    "suggestions": {
+      "highDemand": "High demand detected. Suggested price increase: +12%",
+      "lowDemand": "Low demand. Suggested discount: -10%",
+      "stableDemand": "Stable demand. Maintain current pricing strategy."
+    },
+    "cards": {
+      "revenueTrend": "Revenue Trend Line (Last 30 Days)",
+      "aiSuggestion": "AI Pricing Suggestion",
+      "occupancyToday": "Occupancy rate is {{rate}}% today.",
+      "suggestedAction": "Suggested Action",
+      "weekdayWeekend": "Weekday vs Weekend Revenue",
+      "bestRoomType": "Best Performing Room Type",
+      "forecast": "Revenue Forecast (Next 7 Days)"
+    },
+    "tags": {
+      "autoInsights": "Auto insights",
+      "revenue": "Revenue"
+    },
+    "weekdayWeekend": {
+      "weekday": "Weekday",
+      "weekend": "Weekend"
+    },
+    "roomTypes": {
+      "deluxe": "Deluxe",
+      "suite": "Suite",
+      "standard": "Standard",
+      "executive": "Executive"
+    },
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    }
+  },
+  "hotelSettings": {
+    "menu": {
+      "general": "General",
+      "pricing": "Pricing",
+      "booking": "Booking Rules",
+      "notifications": "Notifications",
+      "staff": "Staff Management",
+      "security": "Security",
+      "payments": "Payments",
+      "appearance": "Appearance"
+    },
+    "header": {
+      "title": "Settings",
+      "subtitle": "Configure hotel operations, pricing, and system preferences."
+    },
+    "info": {
+      "saveReminder": "Remember to click \"Save Changes\" after updating any section."
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "saveChanges": "Save Changes",
+      "save": "Save",
+      "addStaff": "Add Staff",
+      "editStaff": "Edit staff"
+    },
+    "general": {
+      "fields": {
+        "hotelName": "Hotel Name",
+        "description": "Description",
+        "contactEmail": "Contact Email",
+        "phoneNumber": "Phone Number",
+        "address": "Address",
+        "city": "City",
+        "country": "Country",
+        "checkIn": "Check-in Time",
+        "checkOut": "Check-out Time",
+        "currency": "Currency"
+      },
+      "logo": {
+        "uploadLabel": "Upload Hotel Logo",
+        "uploadButton": "Upload Logo",
+        "noFileSelected": "No file selected"
+      }
+    },
+    "pricing": {
+      "fields": {
+        "defaultRoomPrice": "Default Room Price",
+        "weekendMultiplier": "Weekend Price Multiplier",
+        "festivalMultiplier": "Festival Season Multiplier",
+        "taxPercentage": "Tax Percentage",
+        "serviceCharge": "Service Charge %"
+      },
+      "switches": {
+        "dynamicPricing": "Enable Dynamic Pricing",
+        "autoIncrease": "Auto Increase Price when occupancy > 80%",
+        "autoDecrease": "Auto Decrease Price when occupancy < 40%"
+      }
+    },
+    "booking": {
+      "switches": {
+        "instantBooking": "Allow Instant Booking"
+      },
+      "fields": {
+        "minStay": "Minimum Stay",
+        "maxStay": "Maximum Stay",
+        "freeCancellationHours": "Free Cancellation Hours",
+        "refundPercentage": "Refund Percentage"
+      }
+    },
+    "notifications": {
+      "switches": {
+        "email": "Email Notifications",
+        "sms": "SMS Notifications",
+        "push": "Push Notifications",
+        "newBooking": "Notify on New Booking",
+        "cancellation": "Notify on Cancellation",
+        "newReview": "Notify on New Review",
+        "lowOccupancy": "Low Occupancy Alert"
+      }
+    },
+    "staff": {
+      "title": "Staff Members",
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "dialog": {
+        "editTitle": "Edit Staff",
+        "addTitle": "Add Staff"
+      },
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status"
+      },
+      "roles": {
+        "manager": "Manager",
+        "receptionist": "Receptionist",
+        "housekeeping": "Housekeeping"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      }
+    },
+    "security": {
+      "fields": {
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password"
+      },
+      "switches": {
+        "twoFactor": "Enable Two-Factor Authentication"
+      },
+      "loginActivityTitle": "Login Activity",
+      "logoutAllDevices": "Logout from all devices",
+      "location": {
+        "miamiUsa": "Miami, USA",
+        "newYorkUsa": "New York, USA",
+        "chicagoUsa": "Chicago, USA"
+      },
+      "time": {
+        "twoHoursAgo": "2 hours ago",
+        "yesterday": "Yesterday",
+        "threeDaysAgo": "3 days ago"
+      }
+    },
+    "payments": {
+      "fields": {
+        "method": "Payment Method",
+        "commission": "Commission Percentage",
+        "apiKey": "Payment API Key"
+      },
+      "methods": {
+        "stripe": "Stripe",
+        "razorpay": "Razorpay",
+        "paypal": "PayPal"
+      },
+      "transactionHistoryTitle": "Transaction History",
+      "table": {
+        "transactionId": "Transaction ID",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status"
+      },
+      "transactionStatus": {
+        "completed": "Completed",
+        "pending": "Pending"
+      }
+    },
+    "appearance": {
+      "switches": {
+        "darkMode": "Dark Mode"
+      },
+      "fields": {
+        "primaryColor": "Primary Color"
+      },
+      "layout": {
+        "title": "Layout Type",
+        "compact": "Compact",
+        "comfortable": "Comfortable"
+      }
+    }
+  },
+  "hotelReviews": {
+    "header": {
+      "title": "Review Analytics",
+      "subtitle": "Understand sentiment and performance across recent reviews."
+    },
+    "cards": {
+      "averageRating": "Average Rating",
+      "positiveReviews": "Positive Reviews",
+      "positiveSubtitle": "Guests with positive sentiment",
+      "negativeReviews": "Negative Reviews",
+      "negativeSubtitle": "Guests with negative sentiment",
+      "mostPraise": "Most Common Praise",
+      "mostPraiseSubtitle": "Top positive mention in reviews",
+      "mostComplaint": "Most Common Complaint",
+      "mostComplaintSubtitle": "Primary issue raised by guests"
+    },
+    "sections": {
+      "ratingDistribution": "Rating Distribution",
+      "starLabel": "{{star}} Stars",
+      "sentimentSplit": "Positive vs Negative Reviews",
+      "latestReviews": "Latest Guest Reviews"
+    },
+    "sentiment": {
+      "positive": "Positive",
+      "negative": "Negative",
+      "neutral": "Neutral"
+    },
+    "fallback": {
+      "guest": "Guest",
+      "noSignal": "No dominant signal",
+      "loading": "Loading...",
+      "loadingReviews": "Loading reviews...",
+      "noReviews": "No reviews yet."
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "language": {
+    "label": "भाषा",
+    "english": "अंग्रेज़ी",
+    "hindi": "हिंदी",
+    "marathi": "मराठी"
+  },
+  "dashboard": {
+    "menu": {
+      "overview": "ओवरव्यू",
+      "revenue": "रेवेन्यू इंटेलिजेंस",
+      "rooms": "रूम मैनेजमेंट",
+      "bookings": "बुकिंग्स",
+      "customers": "कस्टमर इंटेलिजेंस",
+      "reviews": "रिव्यू एनालिटिक्स",
+      "chat": "चैट",
+      "alerts": "अलर्ट्स",
+      "reports": "रिपोर्ट्स",
+      "profile": "प्रोफाइल"
+    },
+    "section": {
+      "overview": {
+        "title": "ओवरव्यू",
+        "subtitle": "आज के होटल संचालन की स्पष्ट झलक।"
+      },
+      "revenue": {
+        "title": "रेवेन्यू इंटेलिजेंस",
+        "subtitle": "कमाई, परफॉर्मेंस ट्रेंड और ऑक्यूपेंसी प्रभाव ट्रैक करें।"
+      },
+      "rooms": {
+        "title": "रूम मैनेजमेंट",
+        "subtitle": "इन्वेंटरी, प्राइसिंग और उपलब्धता एक ही जगह।"
+      },
+      "bookings": {
+        "title": "बुकिंग्स",
+        "subtitle": "आपकी प्रॉपर्टी के लिए पर्यटकों द्वारा की गई सभी बुकिंग्स देखें।"
+      },
+      "customers": {
+        "title": "कस्टमर इंटेलिजेंस",
+        "subtitle": "मेहमानों की बातचीत और इनसाइट्स एक ही जगह।"
+      },
+      "reviews": {
+        "title": "रिव्यू एनालिटिक्स",
+        "subtitle": "सेंटिमेंट मॉनिटर करें और उपलब्धियों का जश्न मनाएं।"
+      },
+      "chat": {
+        "title": "चैट",
+        "subtitle": "वर्तमान मेहमानों के साथ निजी बातचीत।"
+      },
+      "alerts": {
+        "title": "अलर्ट्स",
+        "subtitle": "महत्वपूर्ण अपडेट, आपके लिए प्राथमिकता के साथ।"
+      },
+      "reports": {
+        "title": "रिपोर्ट्स",
+        "subtitle": "रिज़र्वेशन गतिविधि और संचालन सारांश।"
+      },
+      "profile": {
+        "title": "प्रोफाइल",
+        "subtitle": "अपनी होटल प्रोफाइल और अकाउंट सुरक्षा अपडेट करें।"
+      }
+    }
+  },
+  "topNavbar": {
+    "commandCenter": "होटल कमांड सेंटर",
+    "welcomeBack": "वापसी पर स्वागत है, {{name}}",
+    "subtitle": "बुकिंग, रिव्यू और संचालन एक ही जगह ट्रैक करें।",
+    "roleHotel": "होटल",
+    "defaultHotelOwner": "होटल ओनर",
+    "noEmailProvided": "ईमेल उपलब्ध नहीं",
+    "noPhoneProvided": "फोन उपलब्ध नहीं",
+    "notSet": "सेट नहीं",
+    "field": {
+      "email": "ईमेल",
+      "phone": "फोन",
+      "country": "देश",
+      "interests": "रुचियां"
+    },
+    "profile": "प्रोफाइल",
+    "settings": "सेटिंग्स",
+    "signOut": "साइन आउट"
+  },
+  "sidebar": {
+    "console": "होटल कंसोल",
+    "roleHotel": "होटल",
+    "defaultHotelOwner": "होटल ओनर",
+    "noEmailProvided": "ईमेल उपलब्ध नहीं",
+    "noPhoneProvided": "फोन उपलब्ध नहीं",
+    "notSet": "सेट नहीं",
+    "field": {
+      "email": "ईमेल",
+      "phone": "फोन",
+      "hotel": "होटल",
+      "address": "पता",
+      "country": "देश",
+      "interests": "रुचियां"
+    },
+    "profile": "प्रोफाइल",
+    "signOut": "साइन आउट"
+  },
+  "roomManagement": {
+    "header": {
+      "title": "रूम मैनेजमेंट",
+      "subtitle": "रूम परफॉर्मेंस, ऑक्यूपेंसी और बुकिंग दबाव ट्रैक करें।"
+    },
+    "performance": {
+      "high": "उच्च",
+      "medium": "मध्यम",
+      "low": "कम"
+    },
+    "status": {
+      "all": "सभी",
+      "available": "उपलब्ध",
+      "full": "पूर्ण",
+      "unavailable": "अनुपलब्ध"
+    },
+    "alerts": {
+      "belowAverage": "रूम {{roomNumber}} औसत से {{percent}}% नीचे प्रदर्शन कर रहा है"
+    },
+    "inventory": {
+      "overline": "रूम इन्वेंटरी",
+      "title": "नया रूम जोड़ें",
+      "subtitle": "रूम डिटेल और उपलब्धता एक ही जगह जोड़ें।"
+    },
+    "sections": {
+      "roomDetails": "रूम डिटेल",
+      "inventoryStatus": "इन्वेंटरी और स्टेटस"
+    },
+    "fields": {
+      "roomType": "रूम टाइप",
+      "roomTypePlaceholder": "डीलक्स, सुइट...",
+      "pricePerNight": "प्रति रात कीमत",
+      "totalRooms": "कुल कमरे",
+      "availableNow": "अभी उपलब्ध",
+      "leaveEmpty": "खाली छोड़ें तो कुल कमरे उपयोग होंगे",
+      "status": "स्टेटस"
+    },
+    "filters": {
+      "status": "स्टेटस",
+      "roomType": "रूम टाइप"
+    },
+    "buttons": {
+      "addRoom": "रूम जोड़ें",
+      "save": "सेव",
+      "edit": "एडिट",
+      "cancel": "रद्द करें",
+      "delete": "डिलीट"
+    },
+    "table": {
+      "title": "रूम परफॉर्मेंस टेबल",
+      "columns": {
+        "roomType": "रूम टाइप",
+        "price": "कीमत",
+        "status": "स्टेटस",
+        "vacantTotal": "खाली / कुल",
+        "booked": "बुक्ड",
+        "occupancy": "ऑक्यूपेंसी %",
+        "actions": "एक्शन"
+      },
+      "loading": "रूम लोड हो रहे हैं...",
+      "noRooms": "कोई रूम नहीं मिला।"
+    },
+    "dialog": {
+      "deleteTitle": "रूम डिलीट करें?",
+      "deleteWithType": "क्या आप {{type}} डिलीट करना चाहते हैं?",
+      "deleteDefault": "क्या आप इस रूम को डिलीट करना चाहते हैं?"
+    },
+    "currency": {
+      "prefix": "INR"
+    }
+  }
+}

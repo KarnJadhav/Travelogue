@@ -1,0 +1,289 @@
+INDEX
+Sr. no
+Chapter Name
+Page No.
+1
+Overview of Technology
+1
+2
+Introduction
+7
+3
+Problem Statement
+7
+4
+Objectives
+8
+5
+Proposed Work
+9
+6
+System Architecture
+11
+7
+Project Modules
+13
+8
+Implementation Details
+14
+9
+Conclusion
+17
+10
+References
+17
+Overview of Technology
+The RAG Based Study Assistant project leverages several cutting-edge and trending technologies in the field of Artificial Intelligence, Machine Learning, and Full-Stack Web Development. This section provides an overview of the recent trending technologies used, justification for each technology selection, along with their descriptions, advantages, and disadvantages.
+1. Retrieval-Augmented Generation (RAG)
+Retrieval-Augmented Generation (RAG) is one of the most rapidly emerging paradigms in modern AI development. RAG combines the power of large language models (LLMs) with a retrieval mechanism that fetches relevant information from a knowledge base before generating a response. Unlike traditional LLMs that rely solely on their pre-trained knowledge, RAG enables models to access up-to-date, domain-specific information at inference time. This makes RAG particularly powerful for building document-centric question-answering systems, enterprise knowledge bases, and intelligent study assistants.
+Why RAG was chosen: Traditional LLMs hallucinate when asked specific questions about documents they have not been trained on. RAG solves this by retrieving the top relevant text chunks from the uploaded PDFs and providing them as context to the LLM. This ensures every answer is grounded in the student's actual documents, eliminating hallucination and enabling real-time knowledge integration without model retraining.
+Advantages:
+Answers are grounded in actual document content eliminates hallucination
+No need to retrain the LLM for new documents
+Supports real-time knowledge updates simply by adding new documents
+Scalable works with any number of documents
+Disadvantages:
+Answer quality depends on the quality of text extraction from PDFs
+Retrieval accuracy is bounded by the embedding model's capability
+Complex setup compared to a simple LLM API call
+2. LangChain
+LangChain is a rapidly trending open-source framework for building applications powered by large language models. It provides a unified interface for chaining together LLMs, vector stores, document loaders, text splitters, and prompts into a coherent pipeline. LangChain has become the de facto standard for RAG application development due to its modular design, rich ecosystem of integrations, and LCEL (LangChain Expression Language) which allows pipelines to be composed with a simple pipe (|) operator.
+Why LangChain was chosen: LangChain significantly reduced development time by providing ready-made components for PDF loading (PyPDFLoader), text chunking (RecursiveCharacterTextSplitter), FAISS integration, Google Gemini integration, and prompt templating. Without LangChain, all of these integrations would need to be written manually.
+Advantages:
+Pre-built integrations for 100+ LLMs, vector stores, and document loaders
+LCEL enables clean, readable pipeline composition
+Active community and extensive documentation
+Abstracts away complex boilerplate code
+Disadvantages:
+Rapidly evolving API breaking changes between minor versions
+Abstractions can hide complexity, making debugging harder
+Slight performance overhead compared to raw LLM API calls
+3. FAISS (Facebook AI Similarity Search)
+FAISS is an open-source library developed by Meta AI Research for efficient similarity search over dense vectors. It enables searching among millions of high-dimensional vectors in milliseconds using techniques like inverted file indexes, product quantization, and hierarchical navigable small world graphs (HNSW). FAISS is widely used in production recommendation systems, semantic search engines, and RAG pipelines as the vector store layer.
+Why FAISS was chosen: FAISS runs entirely in-memory on the local machine, requiring no external API calls, no infrastructure setup, and no cost. For a project of this scale (student documents), it provides near-instantaneous similarity search. It integrates seamlessly with LangChain via the langchain-community package.
+Advantages:
+Extremely fast similarity search sub-millisecond for typical document sizes
+Runs entirely locally no network latency, no API cost
+Supports merging multiple indexes (used for multi-document support)
+Well-maintained with strong community support
+Disadvantages:
+In-memory only index is lost when server restarts (mitigated by auto-reload on startup)
+Not suited for distributed deployments with billions of vectors
+Requires re-indexing when a document is deleted
+4. HuggingFace Transformers (Sentence Embeddings)
+HuggingFace Transformers is the world's most popular open-source library for natural language processing. It provides thousands of pre-trained models for tasks including text classification, question answering, translation, and crucially, text embedding. The all-MiniLM-L6-v2 model used in this project is a lightweight sentence-transformer model that converts text into 384-dimensional semantic vectors, enabling meaningful similarity comparisons.
+Why HuggingFace was chosen: The all-MiniLM-L6-v2 model runs entirely locally on the machine without any API key or network connection. This avoids the recurring API costs and rate limits of cloud-based embedding services. It produces high-quality semantic embeddings and downloads once (~90MB), making it practical for offline or restricted network environments.
+Advantages:
+Runs locally no API key, no cost, no rate limits
+High semantic quality for English text similarity tasks
+Compact 384-dimensional vectors are fast to store and search
+Widely used and well-documented
+Disadvantages:
+Requires one-time ~90MB model download
+Slightly slower than GPU-accelerated API embeddings
+Less multilingual capability compared to larger models
+5. Google Gemini 2.5 Flash (Large Language Model)
+Google Gemini 2.5 Flash is Google DeepMind's fast, efficient large language model available through Google AI Studio. It supports a 1-million-token context window and is optimized for speed and cost-efficiency without sacrificing answer quality. Gemini 2.5 Flash is part of the growing ecosystem of powerful yet accessible LLMs that have made generative AI practical for student and research projects.
+Why Gemini was chosen: Gemini 2.5 Flash is available on Google's free tier through AI Studio, making it cost-free for development and testing. It integrates cleanly with LangChain via the langchain-google-genai package and delivers high-quality, coherent answers from retrieved context. Its speed (under 2 seconds per response) is ideal for an interactive chat application.
+Advantages:
+Available free on Google AI Studio no payment required for development
+Fast response time (~1–2 seconds) suitable for real-time chat
+High-quality natural language generation from structured context
+1M-token context window can handle large document excerpts
+Disadvantages:
+Requires internet connection and a valid API key
+Free tier has rate limits (requests per minute)
+Response quality depends on the quality of the retrieved context
+6. FastAPI (Python Backend Framework)
+FastAPI is a modern, high-performance Python web framework for building APIs, based on Python 3.7+ type hints. It is currently one of the fastest-growing Python frameworks and is widely adopted in production AI and data science applications. FastAPI automatically generates OpenAPI documentation, supports asynchronous request handling, and integrates seamlessly with Pydantic for data validation.
+Why FastAPI was chosen: FastAPI provides an intuitive development experience with automatic request validation, serialization, and documentation. Its async support is critical for handling file uploads and LLM API calls concurrently. The lifespan context manager used for startup PDF indexing is a FastAPI-native feature.
+Advantages:
+Extremely fast one of the highest-performing Python frameworks
+Automatic interactive API documentation at /docs
+Native async support for concurrent request handling
+Tight Pydantic integration for request/response validation
+Disadvantages:
+Smaller ecosystem compared to Django
+Requires understanding of Python async programming
+7. React.js (Frontend Library)
+React.js is a JavaScript library for building user interfaces, developed and maintained by Meta. It uses a component-based architecture and a virtual DOM for efficient UI updates. React is currently the most popular frontend library globally and is the foundation for many modern web applications. It enables building interactive, real-time UIs with clean, reusable component code.
+Why React was chosen: React enables building the chat interface, sidebar navigation, document library, and auth forms as reusable, stateful components. React's useState and useEffect hooks manage application state (messages, files, user session) cleanly. The component model maps naturally to the multi-panel layout of the application.
+Advantages:
+Component-based architecture promotes code reuse
+Virtual DOM ensures efficient UI updates
+Massive ecosystem and community support
+Hooks (useState, useEffect, useCallback) simplify state management
+Disadvantages:
+Requires JavaScript ecosystem knowledge (npm, build tools)
+Can be over-engineered for simple static pages
+8. JWT Authentication with bcrypt
+JSON Web Tokens (JWT) are a compact, URL-safe standard for representing claims between two parties. JWT-based authentication is stateless the server issues a signed token on login, and the client includes this token in all subsequent requests. Combined with bcrypt for password hashing, JWT provides a modern, scalable authentication solution widely used in REST APIs and Single Page Applications.
+Why JWT was chosen: JWT enables stateless authentication without server-side session storage, which is ideal for a FastAPI-based REST API. Each token contains the user's ID and an expiry time, allowing the server to verify identity on every request without a database lookup. bcrypt ensures passwords are stored securely with salted hashes.
+Advantages:
+Stateless no server-side session storage required
+Self-contained tokens carry user identity information
+bcrypt hashing protects passwords from brute force attacks
+7-day expiry provides convenient re-authentication
+Disadvantages:
+Tokens cannot be invalidated before expiry without a blacklist
+Token size increases with more claims
+Introduction:
+The RAG Based Study Assistant is a full-stack AI-powered web application designed to help students interact intelligently with their study materials. The application allows users to upload PDF documents including textbooks, lecture notes, and research papers and then ask questions about the content in plain English. Using Retrieval-Augmented Generation (RAG), the system retrieves the most relevant passages from the uploaded documents and uses Google Gemini 2.5 Flash to generate accurate, context-grounded answers.
+Unlike general-purpose AI chatbots, this system is specifically designed for personalized academic use. Each user has a private document library, and all answers are sourced exclusively from their uploaded materials. The system also maintains a persistent chat history, allowing students to review previous study sessions, and includes a secure authentication system to protect user data.
+The project was developed as part of the Technology Trends Lab (TTL) course, applying modern AI technologies including LangChain, FAISS vector search, HuggingFace embeddings, and Google Gemini to solve a real, everyday academic problem. The result is a production-ready application that demonstrates the practical application of Retrieval-Augmented Generation in an educational context.
+Problem Statement and Need of Work:
+Students today deal with large volumes of digital study material in PDF format. Locating specific information within hundreds of pages is time-consuming and inefficient. Existing general-purpose AI assistants (ChatGPT, Gemini) answer from their general training data, which may be outdated, irrelevant, or incorrect for a specific document or course.
+The core problems this project addresses are:
+No efficient way to query specific PDF study materials using natural language
+General AI assistants hallucinate — they fabricate answers not grounded in actual documents
+No per-user privacy — shared AI systems expose all users' content
+No persistent study history — conversations are lost when the browser is closed
+The RAG Based Study Assistant solves all of these problems by combining vector search, local embeddings, and a powerful LLM into a single, user-friendly application with per-user data isolation and persistent chat history.
+Objectives
+The primary objectives of the RAG Based Study Assistant project are as follows:
+Develop a full-stack AI-powered web application that allows students to upload PDF study materials and ask questions using natural language.
+Implement a complete RAG pipeline — PDF text extraction, chunking, embedding, vector storage, similarity search, and LLM-based answer generation.
+Ensure every answer is grounded in the user's uploaded documents, eliminating hallucination through contextual retrieval.
+Build a secure multi-user system with JWT authentication and bcrypt password hashing, providing complete data isolation per user.
+Persist chat history per user, enabling review of past study sessions with session restore functionality.
+Implement per-user document library management with individual file deletion and automatic re-indexing.
+Auto-reload all user documents from disk on server startup to ensure seamless experience after server restarts.
+Deliver a polished React.js frontend with a real-time chat interface, sidebar navigation, and user stats dashboard.
+Proposed Work
+The proposed work for the RAG Based Study Assistant focuses on building a complete, end-to-end RAG pipeline with full-stack integration. The key areas of work include:
+a. RAG Pipeline Development
+The core pipeline handles two distinct phases. The indexing phase — triggered by PDF upload — extracts text using PyPDFLoader, splits it into 1000-character overlapping chunks using RecursiveCharacterTextSplitter, embeds each chunk into 384-dimensional vectors using HuggingFace's all-MiniLM-L6-v2 model, and stores all vectors in a per-user FAISS index. The retrieval phase — triggered by a user question — embeds the question using the same model, performs cosine similarity search in FAISS to retrieve the top 4 relevant chunks, assembles them into a structured prompt with ChatPromptTemplate, and sends the prompt to Gemini 1.5 Flash for answer generation.
+b. Multi-User Architecture
+Each registered user receives an isolated environment: a dedicated upload directory (data/uploads/{user_id}/), a separate in-memory FAISS vector index, and private chat history stored in a shared JSON file but filtered by user ID. This ensures complete data isolation between users on the same server.
+c. Authentication System
+A complete JWT-based authentication system is implemented using the python-jose library for token generation and passlib with bcrypt for password hashing. Users register with a username, email, and password. Upon successful login, a JWT token valid for 7 days is issued. All API endpoints are protected by a FastAPI dependency (get_current_user) that validates the token on every request.
+d. Persistent Chat History
+Every question-answer pair is automatically saved to a JSON file on disk, tagged with the user's ID and session ID. Chat sessions are retrievable, restorable in the chat interface, and individually deletable. The system auto-generates a session title from the first question and tracks Q&A count, creation time, and last updated time.
+e. Frontend Interface
+A React.js single-page application provides the user interface with a sidebar containing two tabs (Documents and History), a real-time chat window with typing indicators and source citations, a drag-and-drop PDF upload zone, and a user profile section with live statistics. The application handles server connectivity, loading states, and error messages gracefully.
+System Architecture
+The RAG Based Study Assistant follows a three-tier architecture with a React frontend, a FastAPI backend, and a dual storage system (file system for PDFs and chat history, in-memory FAISS for vector indexes).
+Frontend Layer
+The React.js single-page application communicates with the backend via REST API calls using the browser's Fetch API. It manages application state using React hooks (useState, useEffect, useCallback) and stores the JWT token in localStorage for persistent sessions. The frontend consists of three logical components: the authentication view (login/register), the sidebar (document library and chat history), and the main chat window.
+Backend Layer
+The FastAPI server exposes 12 REST API endpoints organized into four groups: authentication (/auth/register, /auth/login, /auth/me, /auth/stats), document management (/files, /upload, DELETE /files/{filename}), question answering (/ask), and chat history (/history, /history/{id}). All endpoints except the auth routes are protected by JWT validation middleware.
+RAG Pipeline
+The RAG pipeline operates in two distinct phases. The indexing phase runs at upload time and converts PDFs into searchable FAISS vector indexes. The retrieval-generation phase runs at query time, searching the FAISS index for relevant chunks and using Gemini to generate grounded answers.
+Storage Layer
+Two storage mechanisms are used in parallel. The file system stores uploaded PDFs in data/uploads/{user_id}/ directories and chat history in data/chat_history.json. In-memory FAISS indexes are stored in a Python dictionary (user_vector_stores: Dict[str, FAISS]) keyed by user ID. On server startup, the lifespan function re-indexes all PDFs from disk to restore the in-memory state.
+The following table summarizes the key API endpoints:
+Method
+Endpoint
+Description
+POST
+/auth/register
+Register a new user account
+POST
+/auth/login
+Login and receive JWT token
+GET
+/auth/me
+Get current user profile
+GET
+/auth/stats
+Get user stats (docs, chats, join date)
+GET
+/files
+List current user's uploaded PDFs
+POST
+/upload
+Upload and index a PDF
+DELETE
+/files/{filename}
+Delete one PDF and rebuild index
+POST
+/ask
+Ask a question — returns grounded answer
+GET
+/history
+List all chat sessions for user
+GET
+/history/{id}
+Get full messages of one session
+DELETE
+/history/{id}
+Delete one chat session
+DELETE
+/history
+Clear all user chat history
+Project Modules
+User Authentication Module
+This module manages user registration, login, and session management. Users register with a username, email, and password. The password is hashed using bcrypt before storage. On login, the system verifies the password hash and issues a JWT token valid for 7 days. Every subsequent API call includes this token in the Authorization header, and the get_current_user dependency validates it. User data is stored in data/users.json.
+PDF Management Module
+This module handles all aspects of the user's document library. Users can upload PDF files through a drag-and-drop interface. Each file is saved to data/uploads/{user_id}/ and immediately indexed into the user's FAISS vector store. Users can also delete individual files — the system removes the file from disk and rebuilds the FAISS index from the remaining documents. On server startup, this module scans all user directories and re-indexes all PDFs.
+RAG Question Answering Module
+This module handles the core intelligence of the system. When a user submits a question, the module embeds it using HuggingFace, searches the user's FAISS index for the top 4 relevant chunks, assembles a structured prompt with the retrieved context, and calls the Gemini 1.5 Flash API. The answer and source file names are returned to the frontend. Every Q&A pair is automatically saved to the chat history.
+Chat History Module
+This module manages persistent conversation storage. Every session is stored as a JSON object with a unique ID, user ID, title (first question), creation time, last updated time, and full message list. The frontend sidebar displays sessions in reverse chronological order with Q&A count and timestamps. Users can click any session to restore it in the chat window, or delete individual sessions.
+User Stats Module
+This module provides the /auth/stats endpoint which counts the user's documents, chat sessions, and returns their join date. This data is displayed in the sidebar stats cards and refreshes automatically after every upload, deletion, or question.
+Implementation Details
+Technologies Used
+Technology
+Version
+Purpose
+FastAPI
+0.111.0
+Python REST API backend
+LangChain
+0.2.1
+RAG pipeline orchestration
+FAISS (CPU)
+1.8.0
+In-memory vector similarity search
+HuggingFace (all-MiniLM-L6-v2)
+0.0.3
+Local text embedding model
+Google Gemini 2.5 Flash
+API v1beta
+LLM for answer generation
+PyPDF
+4.2.0
+PDF text extraction
+python-jose (JWT)
+3.3.0
+JWT token generation and validation
+passlib (bcrypt)
+1.7.4
+Password hashing
+React.js
+18.x
+Frontend single-page application
+Pydantic
+2.7.1
+Request/response data validation
+Screenshots:
+Fig. 8.2.1 User Authentication
+Fig. 8.2.2 RAG Question Answering
+Fig. 8.2.3 User Stats and Chat History
+Key Implementation Points
+The per-user FAISS index is stored in a Python dictionary: user_vector_stores: Dict[str, FAISS]. Each key is a user UUID.
+The index_pdf_for_user() function handles both first-document index creation (FAISS.from_documents) and subsequent merges (vector_store.merge_from()).
+The FastAPI lifespan context manager scans all user upload directories at startup and re-indexes every PDF, restoring the full in-memory state.
+When a file is deleted, the user's FAISS index is completely cleared and rebuilt from scratch from remaining files.
+Chat sessions are saved with user_id, enabling multi-user history isolation in a single JSON file.
+The React frontend uses an authFetch() wrapper that automatically injects the Authorization: Bearer header on every API call.
+Conclusion:
+The RAG Based Study Assistant successfully demonstrates the practical application of Retrieval-Augmented Generation technology to solve a real academic problem. The project goes beyond a basic proof-of-concept to deliver a complete, production-ready application with the following achievements:
+A fully functional RAG pipeline that retrieves relevant PDF chunks and feeds them as context to Gemini 1.5 Flash, ensuring every answer is grounded in the student's actual documents with zero hallucination from general training data.
+A secure multi-user architecture with JWT authentication and bcrypt password hashing, providing complete per-user data isolation for document libraries and chat history.
+Production-ready features beyond the core pipeline: server startup auto-indexing, per-file deletion with index rebuilding, persistent chat history with session restore, and a live user stats dashboard.
+Future scope for this project includes multi-modal support for images and diagrams within PDFs, formal RAG evaluation using the RAGAS framework, deployment on cloud platforms (Railway for backend, Vercel for frontend), and features such as auto-generated quiz questions and chapter summaries from uploaded materials.
+References:
+LangChain Documentation — https://python.langchain.com/docs
+FastAPI Official Documentation — https://fastapi.tiangolo.com
+FAISS Library — Meta AI Research — https://github.com/facebookresearch/faiss
+HuggingFace Sentence Transformers — https://www.sbert.net
+Google Gemini API Documentation — https://ai.google.dev/gemini-api/docs
+React.js Official Documentation — https://react.dev
+PyPDF Documentation — https://pypdf.readthedocs.io
+python-jose JWT Library — https://python-jose.readthedocs.io
+passlib Documentation — https://passlib.readthedocs.io
+Lewis, P. et al. (2020). "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." NeurIPS 2020.
+Pydantic Documentation — https://docs.pydantic.dev
+W3Schools — https://www.w3schools.com
