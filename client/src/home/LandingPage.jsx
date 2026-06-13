@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 
@@ -19,25 +19,71 @@ const FEATURES = [
 
 export default function LandingPage() {
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (id) => {
     const node = document.getElementById(id);
     if (node) {
       node.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    setMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (callback) => {
+    callback();
+    setMobileMenuOpen(false);
+  };
+
+  const handleMenuClose = () => {
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
   };
 
   return (
     <div className="lp-shell">
+      {mobileMenuOpen && (
+        <div className="lp-menu-backdrop" onClick={handleMenuClose} />
+      )}
       <header className="lp-header">
         <button type="button" className="lp-brand" onClick={() => scrollToSection('top')}>
           <span className="lp-brand-mark">Travelogue</span>
         </button>
-        <nav className="lp-nav">
-          <button type="button" onClick={() => scrollToSection('features')}>Features</button>
-          <button type="button" onClick={() => navigate('/about')}>About</button>
+        <nav className={`lp-nav ${mobileMenuOpen ? 'lp-nav-open' : ''}`}>
+          <button 
+            type="button" 
+            className="lp-nav-item"
+            onClick={() => handleNavClick(() => scrollToSection('features'))}
+          >
+            Features
+          </button>
+          <button 
+            type="button" 
+            className="lp-nav-item"
+            onClick={() => handleNavClick(() => navigate('/about'))}
+          >
+            About
+          </button>
+          <button 
+            type="button" 
+            className="lp-login-btn lp-login-btn-mobile" 
+            onClick={() => handleNavClick(() => navigate('/login'))}
+          >
+            Login / Sign Up
+          </button>
         </nav>
-        <button type="button" className="lp-login-btn" onClick={() => navigate('/login')}>
+        <button 
+          type="button" 
+          className={`lp-hamburger ${mobileMenuOpen ? 'active' : ''}`} 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button type="button" className="lp-login-btn lp-login-btn-desktop" onClick={() => navigate('/login')}>
           Login / Sign Up
         </button>
       </header>

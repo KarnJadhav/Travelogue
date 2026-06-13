@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: travelogue-backend
+    env: node
+    plan: standard
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /api/health

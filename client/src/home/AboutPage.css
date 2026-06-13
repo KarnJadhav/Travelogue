@@ -2,7 +2,7 @@
   --about-bg: #f5f4ea;
   --about-paper: #ffffff;
   --about-ink: #172126;
-  --about-muted: #43515a;
+  --about-muted: #000000;
   --about-brand: #db7a5b;
   --about-brand-deep: #b7563d;
   --about-green: #236b55;
@@ -499,12 +499,10 @@
   padding: 58px 5vw 66px;
   margin-bottom: var(--about-section-gap);
   border-radius: 12px;
-  background:
-    linear-gradient(120deg, rgba(38, 48, 54, 0.92), rgba(40, 95, 143, 0.88)),
-    #263036;
-  color: #fff;
+  background: #ffffff;
+  color: var(--about-ink);
   text-align: center;
-  box-shadow: 0 24px 60px rgba(38, 48, 54, 0.25);
+  box-shadow: 0 24px 60px rgba(38, 48, 54, 0.12);
   transition: all 0.3s ease;
 }
 
@@ -533,7 +531,7 @@
   .about-story-copy,
   .about-cta {
     animation: aboutReveal 0.8s ease both;
-    animation-timeline: view();
+    /* animation-timeline: view(); */
     animation-range: entry 8% cover 32%;
   }
 
@@ -553,7 +551,7 @@
 .about-cta p {
   max-width: 720px;
   margin: 14px auto 26px;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--about-muted);
 }
 
 @media (max-width: 1180px) {
